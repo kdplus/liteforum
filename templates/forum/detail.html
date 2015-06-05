@@ -1,13 +1,22 @@
 {% extends "base.html" %}
+{% load gravatar %}
 
 {% block title %} {{ post.caption }} {% endblock %}
 
 {% block article %}
 {% load markdown_deux_tags %}
-<civ class="content">
-    <h3>{{ post.caption }}</h3>
-    <h4>{{ post.user.username }}</h4>
-    <hr/>
-    <div>{{ post.content|markdown}} </div>
+<div class="row">
+    <div class="col-md-9" style="padding: 15px;">
+        <h2>{{ post.caption }}</h2>
+        <h4>{{ post.user.username }}</h4>
+    </div>
+    <div class="col-md-2" style="padding: 15px; margin-right:50px;">
+            {% gravatar post.user.email 90 %}
+    </div>
 </div>
+<div class="row">
+    <hr/>
+    <div class="container col-md-12">{{ post.content|markdown}} </div>
+</div>
+
 {% endblock %}
