@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block title %} {{ post.caption }} {% endblock %}
+
+{% block article %}
+<div class="panel-heading">
+    <p class="text">
+        <a class="text" href="{% url 'forum:index' %}">LITEFORUM</a>>注册
+    </p>
+    <hr/>
+</div>
+<div class="panel-heading">
+    {% for error in errors %}
+        <h5>{{ error }}</h5>
+    {% endfor %}
+</div>
+<div class="panel-body">
+<form class="form-horizontal" method="post">
+  {% csrf_token %}
+  <div class="form-group">
+    <label for="inputEmail3" class="col-md-offset-1 col-sm-2 control-label">Username</label>
+    <div class="col-sm-6">
+      <input name="username" type="text" class="form-control" id="inputEmail3" placeholder="username">
+    </div>
+  </div>
+    <div class="form-group">
+    <label for="inputEmail4" class="col-md-offset-1 col-sm-2 control-label">E-mail</label>
+    <div class="col-sm-6">
+      <input name="email" type="text" class="form-control" id="inputEmail4" placeholder="example@example.com">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputPassword3" class="col-md-offset-1 col-sm-2 control-label">Password</label>
+    <div class="col-sm-6">
+      <input name="password1" type="password" class="form-control" id="inputPassword3" placeholder="Password">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputPassword4" class="col-md-offset-1 col-sm-2 control-label">PW Again</label>
+    <div class="col-sm-6">
+      <input name="password2" type="password" class="form-control" id="inputPassword4" placeholder="Password">
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <div class="checkbox">
+        <label>
+          <input type="checkbox"> Okay
+        </label>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" class="btn btn-default">Register</button>
+    </div>
+  </div>
+</form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load gravatar %}
+
+{% block title %} Latest Posts {% endblock %}
+
+
+{% block article %}
+
+    {% for post in latest_post_list %}
+    <div class="row">
+        <div class="col-md-3" style="padding:5px;width:50px;">
+            {% gravatar post.user.email 50 %}
+        </div>
+        <div class="col-md-9" style="height:60px">
+            <h4 ><a href="{% url 'forum:detail' post.id %}">{{ post.caption }}</a></h4>
+            <h5>{{ post.user.username }}</h5>
+        </div>
+    </div>
+    {% endfor %}
+
+{% endblock %}

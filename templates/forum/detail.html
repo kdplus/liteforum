@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %} {{ post.caption }} {% endblock %}
+
+{% block article %}
+{% load markdown_deux_tags %}
+<civ class="content">
+    <h3>{{ post.caption }}</h3>
+    <h4>{{ post.user.username }}</h4>
+    <hr/>
+    <div>{{ post.content|markdown}} </div>
+</div>
+{% endblock %}

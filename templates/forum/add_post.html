@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %} 发布文字 {% endblock %}
+
+
+{% block article %}
+
+<form action="" method="post">
+    {% csrf_token %}
+    <div class="field">
+        <label for="id_caption">Title: </label>
+        {% if form.caption.errors %}
+        <div class="alert alert-error">
+            {{ form.caption.errors }}
+        </div>
+        {% endif %}
+        {{ form.caption }}
+    </div>
+    <div class="field">
+        <label for="id_content">Content: </label>
+        {% if form.content.errors %}
+        <div class="alert alert-error">
+            {{ form.content.errors }}
+        </div>
+        {% endif %}
+        {{ form.content }}
+    </div>
+    <div class="field">
+        <label for="id_tag">tags</label>
+        {% if tag.tag_name.errors %}
+        <div class="alert alert-error">
+            {{ tag.tag_name.errors }}
+        </div>
+        {% endif %}
+        {{ tag.tag_name }}
+    </div>
+    <div class="form-actions">
+        <input class="btn btn-primary" type="submit" value="save and add">
+    </div>
+</form>
+
+
+{% endblock %}
