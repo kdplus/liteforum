@@ -32,3 +32,26 @@
 * 提醒
 * 个人页面
 * 个人信息补全
+
+## 目前效果
+![](http://7xj463.com1.z0.glb.clouddn.com/2015-06-14 03:26:04屏幕截图.png)
+
+![](http://7xj463.com1.z0.glb.clouddn.com/2015-06-14 03:26:08屏幕截图.png)
+
+![](http://7xj463.com1.z0.glb.clouddn.com/2015-06-14 03:26:12屏幕截图.png)
+
+![](http://7xj463.com1.z0.glb.clouddn.com/2015-06-14 03:23:51屏幕截图.png)
+
+![](http://7xj463.com1.z0.glb.clouddn.com/2015-06-14 03:24:52屏幕截图.png)
+
+![](http://7xj463.com1.z0.glb.clouddn.com/2015-06-14 03:24:38屏幕截图.png)
+
+![](http://7xj463.com1.z0.glb.clouddn.com/2015-06-14 03:25:55屏幕截图.png)
+
+![](http://7xj463.com1.z0.glb.clouddn.com/2015-06-14 03:25:08屏幕截图.png)
+
+![](http://7xj463.com1.z0.glb.clouddn.com/2015-06-124 03:25:17屏幕截图.png)
+
+![](http://7xj463.com1.z0.glb.clouddn.com/2015-06-14 03:33:51屏幕截图.png)
+
+![](http://7xj463.com1.z0.glb.clouddn.com/2015-06-14 03:34:29屏幕截图.png)
