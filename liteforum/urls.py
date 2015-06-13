@@ -18,5 +18,7 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^forum/', include('forum.urls', namespace="forum")),
+    url(r'^comments/', include('django_comments.urls')),
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^grappelli/', include('grappelli.urls')),
 ]

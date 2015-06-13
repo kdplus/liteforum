@@ -5,17 +5,31 @@
 
 
 {% block article %}
+{% for post in latest_post_list %}
+<div class="row">
+    <div class="col-md-3" style="padding:5px;width:50px;">
+        {% gravatar post.user.email 50 %}
+    </div>
+    <div class="col-md-9" style="height:60px">
+        <h4><a href="{% url 'forum:detail' post.id %}">{{ post.caption }}</a></h4>
+        <h5>{{ post.user.username }} {{ post.publish_time }} 浏览: {{ post.click_count }}</h5>
+    </div>
+</div>
+{% endfor %}
+{% endblock %}
 
-    {% for post in latest_post_list %}
-    <div class="row">
-        <div class="col-md-3" style="padding:5px;width:50px;">
-            {% gravatar post.user.email 50 %}
-        </div>
-        <div class="col-md-9" style="height:60px">
-            <h4 ><a href="{% url 'forum:detail' post.id %}">{{ post.caption }}</a></h4>
-            <h5>{{ post.user.username }}</h5>
-        </div>
+{% block hot %}
+<div class="col-md-12 container" style="background:#eee;width:300px;height:20px">
+
+</div>
+
+<div id="shadow" class="col-md-12 container" style="background:#FFF;width:300px">
+    <p class="text"style="padding:10px">HOT POSTS</p>
+    {% for post in hot_post_list %}
+    <div class="col-md-12" style="padding:5px">
+        <h6><a href="{% url 'forum:detail' post.id %}">{{ post.caption }}</a></h6>
+        <h6>{{ post.user.username }}  浏览: {{ post.click_count }}</h6>
     </div>
     {% endfor %}
-
+</div>
 {% endblock %}

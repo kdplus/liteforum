@@ -1,18 +1,19 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-from django.db import migrations
+from django.db import models, migrations
 
 
 class Migration(migrations.Migration):
+
     dependencies = [
-        ('forum', '0002_auto_20150605_1754'),
+        ('forum', '0004_post_click_count'),
     ]
 
     operations = [
-        migrations.RenameField(
+        migrations.AddField(
             model_name='post',
-            old_name='author',
-            new_name='user',
+            name='vedio_count',
+            field=models.IntegerField(default=0),
         ),
     ]

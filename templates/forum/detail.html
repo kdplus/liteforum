@@ -1,5 +1,12 @@
 {% extends "base.html" %}
+{% block extra_head %}
+<script src="/static/ressvr/embedpano.js"></script>
+{% endblock %}
 {% load gravatar %}
+
+{% load comments i18n %}
+{% load disqus_tags %}
+{% disqus_dev %}
 
 {% block title %} {{ post.caption }} {% endblock %}
 
@@ -8,15 +15,41 @@
 <div class="row">
     <div class="col-md-9" style="padding: 15px;">
         <h2>{{ post.caption }}</h2>
-        <h4>{{ post.user.username }}</h4>
+        <h4>{{ post.user.username }} {{ post.publish_time }}</h4>
+        <h5>浏览量: {{ post.click_count }}</h5>
     </div>
     <div class="col-md-2" style="padding: 15px; margin-right:50px;">
-            {% gravatar post.user.email 90 %}
+        {% gravatar post.user.email 90 %}
     </div>
 </div>
 <div class="row">
     <hr/>
-    <div class="container col-md-12">{{ post.content|markdown}} </div>
+    <div class="container col-md-12">{{ post.content|markdown}}</div>
 </div>
+{% if post.vedio_count %}
+<div id="pano" style="width:630px;height:430px;">
+	<noscript><table style="width:100%;height:100%;"><tr style="vertical-align:middle;"><td><div style="text-align:center;">ERROR:<br/><br/>Javascript not activated<br/><br/></div></td></tr></table></noscript>
+	<script>
+		embedpano({swf:"/static/ressvr/ressvr.swf", xml:"/static/ressvr/{{ post.vedio_xml_link }}", target:"pano", html5:(document.domain ? "prefer" : "auto"), passQueryParameters:true});
+	</script>
+</div>
+{% endif %}
+<h6>tags:
+{% for tag in post.tags.all %}
+    {{ tag.tag_name }}&nbsp
+{% endfor %}
+</h6>
+{% endblock %}
 
+
+{% block comments %}
+<article id="cmt">
+    <hr class="soften">
+    {% disqus_show_comments%}
+    <hr class="soften">
+</article>
+
+<article>
+
+</article>
 {% endblock %}

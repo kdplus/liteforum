@@ -5,16 +5,16 @@
 
 {% block article %}
 
-<form action="" method="post">
+<form action="" method="post" enctype="multipart/form-data" accept-charset="utf-8">
     {% csrf_token %}
     <div class="field">
-        <label for="id_caption">Title: </label>
+        <label for="id_caption">Title: </label><br>
         {% if form.caption.errors %}
         <div class="alert alert-error">
             {{ form.caption.errors }}
         </div>
         {% endif %}
-        {{ form.caption }}
+        <input name="caption" type="text" class="form-control" placeholder="Text input">
     </div>
     <div class="field">
         <label for="id_content">Content: </label>
@@ -23,21 +23,20 @@
             {{ form.content.errors }}
         </div>
         {% endif %}
-        {{ form.content }}
+        <textarea name="content" class="form-control" rows="15"></textarea>
     </div>
     <div class="field">
-        <label for="id_tag">tags</label>
+        <label for="id_tag">tags: </label><br>
         {% if tag.tag_name.errors %}
         <div class="alert alert-error">
             {{ tag.tag_name.errors }}
         </div>
         {% endif %}
-        {{ tag.tag_name }}
+        <input name="tag_name" type="text" class="form-control" placeholder="tags">
     </div>
-    <div class="form-actions">
-        <input class="btn btn-primary" type="submit" value="save and add">
+    <input type='file' style="padding:10px" name='file' />
+    <div class="col-md-offset-10 form-actions" style="padding:20px">
+        <input class="btn btn-primary" type="submit" value="Post">
     </div>
 </form>
-
-
 {% endblock %}
