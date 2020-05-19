@@ -1,5 +1,5 @@
-# liteforum
-拟V2EX设计的初级DJANGO论坛应用
+# Liteforum
+A django+boostrap forum practice (imitating the design of v2ex.com)
 
 ## 视频上传
 * 使用七牛云python-sdk上传
